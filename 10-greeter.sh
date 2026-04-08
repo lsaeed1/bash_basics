@@ -27,3 +27,25 @@ fi
 # exercise: Add a second argument to the function 
 # and make it give a greeting based on the new 
 # argument.
+
+function weekend_greet2
+{
+   echo "Enjoy the weekend, ${1}! Hope you enjoy some ${2}!"
+}
+
+function weekday_greet2
+{
+   echo "Hope you are working hard, ${1}! Don't forget to do ${2} later!"
+}
+
+
+echo "Please enter your favorite activity"
+read activity
+
+day=$(date | cut -d' ' -f1)
+
+if [ $day = "Sat" ] || [ $day = "Sun" ]; then
+   weekend_greet2 $name $activity
+else
+   weekday_greet2 $name $activity
+fi
